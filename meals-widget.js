@@ -3,7 +3,7 @@
 // icon-color: orange; icon-glyph: utensils;
 
 // note, app deep linking urls in format:
-// homeassistant://navigate/lovelace/garden
+// homeassistant://navigate/calendar
 
 let widget = await createWidget();
 if (!config.runsInWidget) {
