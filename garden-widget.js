@@ -14,6 +14,8 @@ Script.setWidget(widget);
 Script.complete();
 
 async function createWidget(items) {
+    const showLabels = true;
+
     let fileManager = FileManager.iCloud();
     let configPath = fileManager.joinPath(fileManager.documentsDirectory(), "haconfig.json");
     let exists = fileManager.fileExists(configPath);
@@ -48,14 +50,15 @@ async function createWidget(items) {
         let units = entity.attributes?.unit_of_measurement ?? '';
 
         let entityStack = mainStack.addStack()
-        
-        let text = entityStack.addText(`${displayName}:`);
-        text.font = Font.mediumMonospacedSystemFont(14);
-        text.textColor = Color.black();
-        text.textOpacity = 0.8;
-        text.leftAlignText();
-        
-        entityStack.addSpacer();
+        if (showLabels) {
+            let text = entityStack.addText(`${displayName}:`);
+            text.font = Font.mediumMonospacedSystemFont(14);
+            text.textColor = Color.black();
+            text.textOpacity = 0.8;
+            text.leftAlignText();
+            
+            entityStack.addSpacer();
+        }
 
         let displayState = isNaN(state) ? state : Math.round(state); 
         text = entityStack.addText(`${displayState}`);
