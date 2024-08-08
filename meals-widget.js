@@ -27,7 +27,7 @@ async function createWidget(items) {
     req.headers = {"Authorization": `Bearer ${config.token}`, "content-type": "application/json" }
     let haState = await req.loadJSON();
 
-    const entityIds = ['sensor.mealie_todays_breakfast', 'sensor.mealie_todays_lunch', 'sensor.mealie_todays_dinner',  'sensor.mealie_todays_side'];
+    const entityIds = ['sensor.mealie_breakfast_today', 'sensor.mealie_lunch_today', 'sensor.mealie_dinner_today', 'sensor.mealie_side_today'];
 
     /* Create the widget */
     const widget = new ListWidget();
@@ -38,7 +38,7 @@ async function createWidget(items) {
 
     let entities = haState.filter((entity) => entityIds.findIndex((entityId) => entityId == entity.entity_id ) >= 0);
 
-    entities.filter((entity) => entity.state != 'unknown').forEach(entity => {
+    entities.filter((entity) => entity.state != 0).forEach(entity => {
         let displayName = entity.attributes?.friendly_name ?? entity;
         let state = entity.state;
         let units = entity.attributes?.unit_of_measurement ?? '';
