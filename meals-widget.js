@@ -60,14 +60,17 @@ async function createWidget(items) {
         text.font = Font.mediumMonospacedSystemFont(14);
         text.textColor = Color.white();
         text.textOpacity = 1;
-        text.rightAlignText();
-
+        if(showLabels) {
+            text.rightAlignText();
+        }
 
         text = entityStack.addText(`${units}`);
         text.font = Font.mediumMonospacedSystemFont(10);
         text.textColor = Color.white();
         text.textOpacity = 0.6;
-        text.rightAlignText();
+        if(showLabels) {
+            text.rightAlignText();
+        }
     });
     return widget;
 }
