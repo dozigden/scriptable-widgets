@@ -1,4 +1,4 @@
-These are some widgets for Scriptable on iOS (https://apps.apple.com/us/app/scriptable/id1405459188).
+These are some widgets for the Scriptable app on iOS (https://apps.apple.com/us/app/scriptable/id1405459188).
 
 They get data from Home Assistant for use as iOS widgets.
 
